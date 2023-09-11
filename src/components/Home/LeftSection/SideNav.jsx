@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
 
 import homepng from "../../../assets/home/homepng.png";
-import course from "../../../assets/home/corse.png";
+// import course from "../../../assets/home/corse.png";
 import beacon from "../../../assets/home/beacon.png";
 import mobile from "../../../assets/home/mobile.png";
 import schedule from "../../../assets/home/calendar.png";
-import Settings from "../../../assets/home/Settings.png";
+// import {Settings} from "../../../assets/home/Settings.png";
 import { useNavigate } from "react-router-dom";
 
 const SideBar = () => {
