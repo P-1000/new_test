@@ -1,0 +1,6 @@
+/* Custom CSS for slick slider buttons */
+.slick-slider button.slick-prev,
+.slick-slider button.slick-next {
+  color: #000; /* Black color */
+  /* Add other styles as needed */
+}
