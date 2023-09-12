@@ -1,0 +1,27 @@
+# Redirect to the home page for all unknown routes
+/*    /index.html   200
+
+# Redirect to the respective React components for specific routes
+/signup       /index.html   200
+/login        /index.html   200
+/dashboard    /index.html   200
+/attendance   /index.html   200
+/bunk         /index.html   200
+/grades       /index.html   200
+/grades/*     /index.html   200
+/c/*          /index.html   200
+/c/*/units    /index.html   200
+/c/*/units/*/ /index.html   200
+
+# Redirect to the respective React components for the schedule
+/schedule     /index.html   200
+
+# Redirect to the respective React components for Quizz
+/quizz       /index.html   200
+/quizz/*     /index.html   200
+
+# Redirect to the respective React components for announcements
+/announcements   /index.html   200
+
+# Redirect to the respective React components for events
+/events       /index.html   200
