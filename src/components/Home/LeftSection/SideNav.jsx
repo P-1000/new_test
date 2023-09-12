@@ -14,9 +14,9 @@ const SideBar = () => {
     // { icon: course, label: "Course" },
     { icon: beacon, label: "Announcements" },
     { icon: mobile, label: "Grades" },
-    { icon: Settings, label: "Attendance" },
+    { icon: mobile, label: "Attendance" },
     { icon: schedule, label: "Schedule" },
-    { icon: Settings, label: "Events" },
+    { icon: mobile, label: "Events" },
   ];
 
   const [activeButton, setActiveButton] = useState(0);
