@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import quizData from './quizdata';
+import quizData from './quizData.json';
 import {motion} from 'framer-motion';
 
 const QuizComponent = () => {
