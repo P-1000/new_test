@@ -1,4 +1,3 @@
-/signup       /index.html   200
 /login        /index.html   200
 /dashboard    /index.html   200
 /attendance   /index.html   200
@@ -8,12 +7,8 @@
 /c/*          /index.html   200
 /c/*/units    /index.html   200
 /c/*/units/*/ /index.html   200
-
 /schedule     /index.html   200
-
 /quizz       /index.html   200
 /quizz/*     /index.html   200
-
 /announcements   /index.html   200
-
 /events       /index.html   200
