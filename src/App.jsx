@@ -40,43 +40,46 @@ function App() {
 
   return (
     <>
-    <div className="flex flex-row sm:p-5 bg-slate-100">
-      <div className="hidden lg:block">
-        {!isSidebarOpen ? null : <SideBar />}
+      <div className="flex flex-row bg-slate-100">   {/*  sm:p-5 */}
+        {!isSidebarOpen ? null :
+          <>
+            <div className="hidden lg:block w-[15rem]">
+              <SideBar />
+            </div>
+          </>
+        }
+        <div className="h-screen overflow-y-scroll scrollbar-hidden mx-auto">  {/* m:px-5*/}
+          <Routes>
+            <Route path="/signup" element={<Signup />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/" element={<Home />} />
+            <Route path="/dashboard" element={<Home />} />
+            <Route path="/attendance" element={<Attendance />} />
+            <Route path="/bunk" element={<Attendance />} />
+            <Route path="/grades" element={<Grades />} />
+            <Route path="/grades/:term" element={<Grades />} />
+            <Route path="/c/:course_code" element={<CourseDetail />} />
+            <Route path="/c/:course_code/units" element={<CourseDetail />} />
+            <Route
+              path="/c/:course_code/units/:unit_name/:material/:m_name"
+              element={<UnitDetail />}
+            />
+
+            {/* schedule */}
+            <Route path="/schedule" element={<Sch />} />
+
+
+            {/* Quizz */}
+            <Route path="/quizz" element={<QuizzHome />} />
+            <Route path="/quizz/:quizz_name" element={<Quizz />} />
+
+            <Route path="/announcements" element={<Announcemnets />} />
+
+            <Route path="/events" element={<Events />} />
+
+          </Routes>
+        </div>
       </div>
-      <div className="h-screen overflow-y-scroll scrollbar-hidden sm:px-5 mx-auto">
-        <Routes>
-          <Route path="/signup" element={<Signup />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/" element={<Home />} />
-          <Route path="/dashboard" element={<Home />} />
-          <Route path="/attendance" element={<Attendance />} />
-          <Route path="/bunk" element={<Attendance />} />
-          <Route path="/grades" element={<Grades />} />
-          <Route path="/grades/:term" element={<Grades />} />
-          <Route path="/c/:course_code" element={<CourseDetail />} />
-          <Route path="/c/:course_code/units" element={<CourseDetail />} />
-          <Route
-            path="/c/:course_code/units/:unit_name/:material/:m_name"
-            element={<UnitDetail />}
-          />
-
-          {/* schedule */}
-          <Route path="/schedule" element={<Sch />} />
-
-
-      {/* Quizz */}
-      <Route path="/quizz" element={<QuizzHome/>} />
-      <Route path="/quizz/:quizz_name" element={<Quizz/>} />
-
-      <Route path="/announcements" element={<Announcemnets/>} />
-
-      <Route path="/events" element={<Events/>} />
-
-      </Routes>
-</div>
-</div>
-
     </>
   );
 }

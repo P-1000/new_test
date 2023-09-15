@@ -30,6 +30,7 @@
     "firebase": "^10.3.1",
     "framer-motion": "^10.16.1",
     "js-cookie": "^3.0.5",
+    "jutsu-git": "^1.1.0",
     "lottie-web": "^5.12.2",
     "material-paper": "^0.0.8",
     "moment": "^2.29.4",

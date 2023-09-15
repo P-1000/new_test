@@ -4,6 +4,7 @@ import { AiOutlineSearch } from "react-icons/ai";
 import { MdOutlineNotificationAdd } from "react-icons/md";
 import NewCourse from "./NewCourse";
 import MyCourse from "./MyCourse";
+import { motion } from "framer-motion";
 
 
 
@@ -89,43 +90,49 @@ const Dashboard = () => {
   };
 
   return (
-   
-    
-    
-        <div className="sm:px-10 flex flex-col p-4 sm:-mt-3 w-full sm:items-start   md:w-[32rem] lg:w-[46rem]  xl:w-[50rem]    ">
-      <div className=" sm:flex sm:w-[100%] justify-between ">
-        <div className="flex  items-center  ">
-          <h1 className="text-2xl pb-3 sm:pb-0 text-black/80 font-semibold  sm:mt-2">
-            Dashboard
-          </h1>
+
+
+
+    <div className="sm:px-10 flex flex-col p-4 sm:-mt-3 w-full sm:items-start   md:w-[32rem] lg:w-[46rem]  xl:w-[50rem]    ">
+      <div className=" sm:flex sm:w-[100%] justify-between border-b-2 pb-3">
+        <div className="flex flex-col items-center  ">
+          <motion.h2 
+            initial={{scale:15}}
+            animate={{scale:1}}
+            transition={{duration:1.2 , type:"keyframes"}}
+          className="text-2xl pb-3 sm:pb-0 text-black/80 font-semibold z-50 sm:mt-2">
+            
+            Welcome Back!
+          </motion.h2>
+          {/* <p className="">Hi kaurfb</p> */}
         </div>
         <div className="gap-4 flex items-center">
           <AiOutlineSearch className="absolute ml-2 w-6 h-6 bg-white text-gray-400" />
-        <div className="flex flex-col">
-        <input
-            type="text"
-            placeholder="Search"
-            value={searchInput}
-            onChange={handleInputChange}
-            className="rounded-md w-[15rem] pl-10 shadow-md p-2 border-none bg-white"
-          />
-          <div className="absolute pt-10">
-          {searchInput && (
-        <div className="mt-4  bg-white border  rounded-md shadow-md">
-          {searchResults.map((result) => (
-            <div key={result.id } className="z-50">
-              <div className="flex gap-2 p-2 hover:bg-slate-200 cursor-pointer items-center justify-between">
-                <p className="text-sm ">{result.courseCode}</p>
-                <p className="text-sm">{result.courseName}</p>
-              </div>
-              <hr className="my-2" />
+          <div className="flex flex-col">
+            <input
+              type="text"
+              placeholder="Search"
+              value={searchInput}
+              onChange={handleInputChange}
+              className="rounded-2xl w-[15rem] pl-10 shadow-md p-2 border-none bg-white focus:ring ring-sky-800/50 focus:outline-none"
+            />
+            <div className="absolute pt-10">
+              {searchInput && (
+                <div className="mt-4  bg-white border py-2 px-3 rounded-lg shadow-md">
+                  {searchResults.map((result) => (
+                    <div key={result.id} className="z-50">
+                      <div className="flex gap-2 p-2 hover:bg-slate-100 rounded-lg cursor-pointer items-center justify-between">
+                        <p className="text-sm ">{result.courseCode}</p>
+                        <p className="text-sm">{result.courseName}</p>
+                      </div>
+                      <hr className="my-2" />
+                    </div>
+                  ))}
+                </div>
+              )}
             </div>
-          ))}
-        </div>
-      )}
           </div>
-        </div>
-          <button className="flex shadow-lg items-center justify-center rounded-md bg-white p-2">
+          <button className="flex shadow-lg items-center justify-center rounded-xl bg-white p-2">
             <MdOutlineNotificationAdd className="w-6 h-6 text-gray-400" />
           </button>
         </div>

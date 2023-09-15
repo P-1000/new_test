@@ -50,6 +50,8 @@ const GradeSingleCard = (props) => {
         </div>
       </div>
       <div>
+        {path === "/grades" ? (
+          <div>
         <motion.h2
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -58,9 +60,11 @@ const GradeSingleCard = (props) => {
         >
           Stats
         </motion.h2>
-        <div>
-          <OverallStats studentData={semesterInfo} />
-        </div>
+            <OverallStats studentData={semesterInfo} />
+          </div>
+        ) : (
+          null
+        )}
       </div>
     </div>
   );

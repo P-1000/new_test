@@ -77,14 +77,14 @@ const GradesForTerm = ({ studentData, selectedTerm }) => {
       className="w-full "
     >
       {/* <h2 className="text-2xl font-semibold mb-4">Grades for Term {selectedTerm}</h2> */}
-      <div className="mb-2">
-        <label className="mr-2 text-xs sm:text-base">Sort by Grade:</label>
-        <div className="flex my-5 text-xs sm:text-base">
+      <div className="mb-2 flex items-center">
+        <label className="mr-2 mt-5 text-xs sm:text-base">Sort by Grade:</label>
+        <div className="flex mt-5 text-xs sm:text-base ">
           <button
             onClick={() => setSortBy("asc")}
             className={`${
               sortBy === "asc"
-                ? "bg-blue-500 text-white"
+                ? "bg-sky-700 text-white"
                 : "bg-gray-200 text-gray-700"
             } rounded-md py-1 px-2 mr-2`}
           >
@@ -94,7 +94,7 @@ const GradesForTerm = ({ studentData, selectedTerm }) => {
             onClick={() => setSortBy("desc")}
             className={`${
               sortBy === "desc"
-                ? "bg-blue-500 text-white"
+                ? "bg-sky-700 text-white"
                 : "bg-gray-200 text-gray-700"
             } rounded-md py-1 px-2`}
           >
@@ -102,15 +102,13 @@ const GradesForTerm = ({ studentData, selectedTerm }) => {
           </button>
         </div>
       </div>
-      <div className="w-full  my-6">
+      <div className="w-full flex items-center justify-center flex-col my-6 border p-4 rounded-xl shadow-md">
         <AnimatePresence>
           {transitions((style, item) => (
             <motion.div
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
               key={item.course}
               style={style}
-              className="flex border-b w-10/12  border-gray-300 py-5 mb-2 hover:bg-slate-100/80 cursor-pointer"
+              className="flex border-b w-11/12 hover:scale-105 border-gray-300 py-4 hover:bg-gray-200 cursor-pointer transition ease-in rounded-md"
             >
               <div className="w-10/12 px-4 text-xs sm:text-lg">
                 {item.course.split(" : ")[0]} : : {item.course.split(" : ")[1]}

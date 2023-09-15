@@ -41,17 +41,18 @@ function AttendanceCalculator({ attendanceData }) {
     const updatedAttendance = [...editedAttendance];
     if (updatedAttendance[index]) {
       updatedAttendance[index][field] = newValue;
-
+  
       if (field === "TargetAttendance") {
         recalculateBunks(index);
         calculateResultAttendance(index);
       } else if (field === "BunksLeft") {
         calculateResultAttendance(index);
       }
-
+  
       setEditedAttendance(updatedAttendance);
     }
   };
+  
 
   const recalculateBunks = (index) => {
     const updatedAttendance = [...editedAttendance];
@@ -64,13 +65,6 @@ function AttendanceCalculator({ attendanceData }) {
       );
       updatedAttendance[index].BunksLeft = bunksLeft;
       setEditedAttendance(updatedAttendance);
-      //  if(bunksLeft < 1){
-      //   updatedAttendance[index].BunksLeft = 0;
-      //   setEditedAttendance(updatedAttendance);
-      //  }else{
-      //   updatedAttendance[index].BunksLeft = bunksLeft;
-      //   setEditedAttendance(updatedAttendance);
-      //  }
     }
   };
 
@@ -172,21 +166,39 @@ function AttendanceCalculator({ attendanceData }) {
                     className="w-32    p-1 focus:outline-none border-b text-center rounded placeholder:text-xs"
                   />
                 </div>
-                <div className="mb-2">
+             {gr ? 
+              <div className="mb-2">
                   <span className="font-bold">
-                    {gr ? "Bunks Left" : "Classes to attend"}
+                    Bunks Left:
                   </span>
                   <input
                     type="text"
                     placeholder="Enter %"
-                    value={course.BunksLeft}
+                    value={isFinite(course.BunksLeft) ? course.BunksLeft : 0}
                     onChange={(e) =>
                       updateEditedAttendance(index, "BunksLeft", e.target.value)
                     }
                     maxLength="3"
                     className="w-32 p-1 focus:outline-none border-b text-center rounded placeholder:text-xs"
                   />
-                </div>
+                </div> : 
+                <div className="mb-2">
+                  <span className="font-bold">
+                   Classes to attend:
+                  </span>
+                  <input
+                    type="text"
+                    placeholder="Enter %"
+                    value={isFinite(course.BunksLeft) ? course.BunksLeft : 0}
+                    onChange={(e) =>
+                      updateEditedAttendance(index, "BunksLeft", e.target.value)
+                    }
+                    maxLength="3"
+                    className="w-32 p-1 focus:outline-none border-b text-center rounded placeholder:text-xs"
+                  />
+                </div> 
+                
+             }
                 <div>
                   <span className="font-bold">Result Attendance:</span>{" "}
                   {course.ResultAttendance || ""}
