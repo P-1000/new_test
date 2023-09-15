@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import quizData from './quizdata';
+import quizData from './Quixx';
 import {motion} from 'framer-motion';
 
 const QuizComponent = () => {
