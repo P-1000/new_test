@@ -41,7 +41,7 @@ const LoginComponent = () => {
     toast.loading("Please Wait while we fetch Your Data...")
     try {
     
-      const res = await axios.post("https://clientback-xa21.onrender.com/api/auth/login", {
+      const res = await axios.post("hhttps://clientback-xa21.onrender.com/api/auth/login", {
         registrationNumber: registrationNumber,
         password: password,
       });
@@ -49,8 +49,8 @@ const LoginComponent = () => {
 
       if (res.status === 200) {
         console.log(res.data, "res.data");
-        dispatch(setUserProfile(res.data.profileData));
-        localStorage.setItem("user", JSON.stringify(res.data.profileData));
+        dispatch(setUserProfile(res.data.dat));
+        localStorage.setItem("user", JSON.stringify(res.data.dat));
         Cookies.set("token", data.token, { expires: 7, path: "/" });
         navigate("/dashboard");
       }
