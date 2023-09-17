@@ -1,6 +1,5 @@
 import React, { useState , useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-// import quizData from './quizdata';
 import {motion} from 'framer-motion';
 import { initializeApp } from 'firebase/app';
 import {
@@ -38,9 +37,9 @@ const QuizComponent = () => {
   const [reviewMode, setReviewMode] = useState(false);
   const [selectedAnswers, setSelectedAnswers] = useState([]);
 
-  const courseCode = 'REACT'; // Update with your course code
-  const unit = 'UNIT-1'; // Update with your unit name
-  const quizName = 'REACT'; // Update with your quiz name
+  const courseCode = 'REACT'; 
+  const unit = 'UNIT-1'; 
+  const quizName = 'REACT'; 
 
   const history = useNavigate();
 
