@@ -1,0 +1,86 @@
+[
+    {
+    "id":"1",
+    "question":"What is Cloud Computing?",
+    "options":[
+    "a) Cloud Computing means providing services like storage, servers, database, networking, etc",
+    "b) Cloud Computing means storing data in a database",
+    "c) Cloud Computing is a tool used to create an application",
+    "d) None of the mentioned"
+    ],
+    "answer":"a",
+    "explanation":"Cloud computing means providing services like storage, servers, database, networking, etc. over the internet without the user managing it directly. The data stored can be accessed by an authorized user anywhere anytime provided the user must have an internet connection and a device."
+    },
+    {
+    "id":"2",
+    "question":"Who is the father of cloud computing?",
+    "options":[
+    "a) Sharon B. Codd",
+    "b) Edgar Frank Codd",
+    "c) J.C.R. Licklider",
+    "d) Charles Bachman"
+    ],
+    "answer":"c",
+    "explanation":"In the 1960s J.C.R. Licklider wanted to connect people and share data anytime from anywhere, hence he invented Cloud Computing."
+    },
+    {
+    "id":"3",
+    "question":"Which of the following is not a type of cloud server?",
+    "options":[
+    "a) Public Cloud Servers",
+    "b) Private Cloud Servers",
+    "c) Dedicated Cloud Servers",
+    "d) Merged Cloud Servers"
+    ],
+    "answer":"d",
+    "explanation":"In Public Servers the users share the hardware, storage, and networks. Private Servers provide high security to the data stored through firewalls and internal hosting. Also, in the private cloud, the user can customize their servers with add-ons. In Dedicated Servers, the server completely belongs to a particular organization or a company."
+    },
+    {
+    "id":"4",
+    "question":"Which of the following are the features of cloud computing?",
+    "options":[
+    "a) Security",
+    "b) Availability",
+    "c) Large Network Access",
+    "d) All of the mentioned"
+    ],
+    "answer":"d",
+    "explanation":"One of the important features is security, the data stored is secured and cannot be accessed by unauthorized parties. In case the user exhausts the storage space allocated, the user can buy extra storage for a less amount. The data stored can be accessed by any authorized user anywhere anytime provided the user must have an internet connection and a device."
+    },
+    {
+    "id":"5",
+    "question":"Which of the following is a type of cloud computing service?",
+    "options":[
+    "a) Service-as-a-Software (SaaS)",
+    "b) Software-and-a-Server (SaaS)",
+    "c) Software-as-a-Service (SaaS)",
+    "d) Software-as-a-Server (SaaS)"
+    ],
+    "answer":"c",
+    "explanation":"Software as a Service, is the most widely used choice for enterprises. SaaS makes use of the internet to offer apps to consumers that are controlled by a third-party vendor."
+    },
+    {
+    "id":"6",
+    "question":"Which of the following is the application of cloud computing?",
+    "options":[
+    "a) Adobe",
+    "b) Paypal",
+    "c) Google G Suite",
+    "d) All of the above"
+    ],
+    "answer":"d",
+    "explanation":"Adobe Creative Cloud is used in the art sector. Paypal is an online payment application. Google G Suite is the best storage and backup application used by google."
+    },
+    {
+    "id":"7",
+    "question":"Which of the following is an example of the cloud?",
+    "options":[
+    "a) Amazon Web Services (AWS)",
+    "b) Dropbox",
+    "c) Cisco WebEx",
+    "d) All of the above"
+    ],
+    "answer":"d",
+    "explanation":"Amazon Web Services (AWS), Dropbox, and Cisco WebEx are examples of cloud."
+    }
+    ]
