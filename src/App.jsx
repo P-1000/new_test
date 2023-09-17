@@ -19,11 +19,14 @@ import Quizz from "./pages/Quizz";
 import QuizzHome from "./components/Quizz/QuizzHome";
 import Announcemnets from "./pages/Announcemnets";
 import Events from "./pages/Events";
+import { HiMenu } from "react-icons/hi"
+import MobileNavbar from "./components/Home/Smmenu";
 
 function App() {
   const location = useLocation();
 
   const [isSidebarOpen, setIsSidebarOpen] = useState(true);
+  const [isHamburgerOpen, setIsHamburgerOpen] = useState(false);
 
   useEffect(() => {
     if (
@@ -38,8 +41,19 @@ function App() {
     }
   }, [location.pathname]);
 
+  const toggleHamburgerMenu = () => {
+    setIsHamburgerOpen(!isHamburgerOpen);
+  };
+
+
   return (
     <>
+      {!isSidebarOpen ? null : (
+        <>
+          <MobileNavbar />
+        </>
+      )}
+
       <div className="flex flex-row bg-slate-100">   {/*  sm:p-5 */}
         {!isSidebarOpen ? null :
           <>
@@ -48,6 +62,7 @@ function App() {
             </div>
           </>
         }
+
         <div className="h-screen overflow-y-scroll scrollbar-hidden mx-auto">  {/* m:px-5*/}
           <Routes>
             <Route path="/signup" element={<Signup />} />
@@ -71,7 +86,7 @@ function App() {
 
             {/* Quizz */}
             <Route path="/quizz" element={<QuizzHome />} />
-            <Route path="/quizz/:quizz_name" element={<Quizz />} />
+            <Route path="/quizz/:courseCode/:unit/:quizz_name" element={<Quizz />} />
 
             <Route path="/announcements" element={<Announcemnets />} />
 

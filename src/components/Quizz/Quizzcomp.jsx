@@ -1,9 +1,67 @@
-import React, { useState } from 'react';
+import React, { useState , useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import quizData from './Quixx';
+import quizData from './quizdata';
 import {motion} from 'framer-motion';
+import { initializeApp } from 'firebase/app';
+import {
+  getFirestore,
+  collection,
+  doc,
+  query,
+  where,
+  getDocs,
+} from 'firebase/firestore';
+
+const firebaseConfig = {
+  apiKey: "AIzaSyDkR4MESgjh20z9yaM1s1AXX99qquDn2ss",
+  authDomain: "sanfoundry-sc.firebaseapp.com",
+  projectId: "sanfoundry-sc",
+  storageBucket: "sanfoundry-sc.appspot.com",
+  messagingSenderId: "527997111994",
+  appId: "1:527997111994:web:35a22b150a14f2e3c1bc83",
+  measurementId: "G-8Q04XQCCSR"
+};
+
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
+
 
 const QuizComponent = () => {
+
+  const courseCode = "REACT"
+  const unit = "UNIT-1"
+  const quizName = "REACT"
+
+
+  useEffect(() => {
+    // Create a reference to the quizzes collection within the specified unit
+    const quizzesCollectionRef = collection(
+      doc(db, 'courses', courseCode),
+      unit
+    );
+
+    // Define a query to get the quiz document with the specified quizName
+    const q = query(
+      quizzesCollectionRef,
+      where('quizTitle', '==', quizName)
+    );
+
+    // Fetch the quiz document
+    getDocs(q)
+      .then((querySnapshot) => {
+        if (querySnapshot.docs.length === 1) {
+          const quizDoc = querySnapshot.docs[0];
+          console.log(quizDoc.data().quizData)
+        } else {
+         console.log("No matching quiz found")
+        }
+      })
+      .catch((error) => {
+        console.error('Error fetching quiz: ', error);
+      })
+      .finally(() => {
+      });
+  }, [courseCode, unit, quizName]);
 
 
   const [currentQuestion, setCurrentQuestion] = useState(0);
@@ -14,12 +72,14 @@ const QuizComponent = () => {
   const [score, setScore] = useState(0);
   const [quizCompleted, setQuizCompleted] = useState(false);
   const [reviewMode, setReviewMode] = useState(false);
+  // const [quizData , setQuizData] = useState([]); 
+
+
+
   const [selectedAnswers, setSelectedAnswers] = useState(Array(quizData.length).fill(null));
 
-  const history = useNavigate(); // Create a history object
-
+  const history = useNavigate(); 
   const handleClose = () => {
-    // Navigate back when the close button is clicked
     history(-1);
   };
 
@@ -70,6 +130,8 @@ const QuizComponent = () => {
   const handleReview = () => {
     setReviewMode(true);
   };
+
+
 
   return (
     <div className="min-h-screen  flex items-center justify-center bg-white">

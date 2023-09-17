@@ -14,8 +14,7 @@ const Header1 = () => {
             className="ml-3 text-xl "
             onClick={() => {
               navigate('/');
-            }}
-           className="ml-3 text-xl">LMSEDU</span>
+            }}>LMSEDU</span>
         </a>
         <nav className="md:ml-auto md:mr-auto flex flex-wrap items-center text-base justify-center">
             <input type="text" placeholder="Search" className="border-2 border-gray-300 bg-white h-10 px-5 w-full pr-16 rounded-lg text-sm focus:outline-none"/>

@@ -40,12 +40,6 @@ function FolderUploader(props) {
     return folderInfo;
   };
 
-//   const { getRootProps, getInputProps } = useDropzone({
-//     onDrop,
-//     webkitdirectory: true, // Allow directory uploads
-//   });
-
-  // const daat = folde
 
   const [shit, setShit] = useState({
     unit1: {
@@ -67,28 +61,10 @@ function FolderUploader(props) {
   useEffect(() => {}, [shit]);
 
 
-  //upload course content
-
-  const uploadCourse = async() =>{
-    console.log(folderStructure)
-    try {
-      const res = await axios.post("http://localhost:3000/api/courses/addCourse" , 
-      {
-        course_name : cname,
-        course_code : cname,
-        Folder : JSON.stringify(folderStructure)
-      }
-      )
-      console.log(res)
-    } catch (error) {
-      console.log(error)
-    }
-  }
-
 
 
   return (
-    <div>
+    <div className="w-full">
       <FolderStructure shit={shit} course_code={course_code} />
       
     </div>

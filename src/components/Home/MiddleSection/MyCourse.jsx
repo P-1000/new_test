@@ -60,18 +60,18 @@ const MyCourse = () => {
   let colorIndex = 0;
 
   return (
-    <div className="mt-8 w-[100%]">
+    <div className="mt-8 w-[100%] rounded-lg p-10 ">
       <div className="flex justify-between ">
-        <h2 className="text-xl font-medium">My Course</h2>
-        <p className="text-purple-600">View All</p>
+        <h2 className="text-xl font-semibold">My Course</h2>
+        <p className="text-sky-800">View All</p>
       </div>
-      <div className="mt-6 flex flex-col  justify-between ">
+      <div className="mt-6 flex flex-col justify-between ">
         <div className=" sm:text-sm text-xs mb-2 text-gray-600 flex justify-between ">
           <p>Course Name</p>
           <div className="flex    justify-between  md:justify-between sm:w-[50%] ">
-            <p className="xl:pr-[9.5rem] hidden sm:block">Start</p>
+            <p className="xl:pr-[6rem] hidden sm:block">Start</p>
             <p className="xl:pr-[7.5rem] hidden sm:block">Rate</p>
-            <p className="hidden sm:block">Level</p>
+            <p className="hidden pr-[1.2rem] sm:block">Level</p>
           </div>
         </div>
 
@@ -93,10 +93,7 @@ const MyCourse = () => {
                   ease: "easeIn", // Gradual acceleration and deceleration
                   delay: (a += 0.099),
                 }}
-                className="mt-2 mb-1 flex justify-between items-center p-3 
-    rounded-xl hover:scale-105 
-    hover:shadow-lg
-    transition-all"
+                className="mt-2 mb-1 flex justify-between items-center p-3 rounded-2xl hover:scale-105 hover:shadow-lg border transition-all"
               >
                 <div className="flex gap-2 sm:gap-4 items-center justify-center">
                   <motion.div

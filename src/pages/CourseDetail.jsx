@@ -2,7 +2,7 @@
 // import { useState } from 'react';
 // import { Link } from 'react-router-dom';
 // import { useNavigate } from 'react-router-dom';
-// import { useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 // import PdfViewer from '../components/PDF/Test.jsx';
 
 // const CourseDetail = () => {
@@ -82,11 +82,12 @@ import FolderUploader from '../components/NewCourseDet/Test'
 
 const CourseDetail = () => {
   const [course , setCourse] = useState("")
+  const { course_code } = useParams();
 
   useEffect(() => {
 
     const fetchCourse = async () => {
-      const res = await  axios.get('http://localhost:8000/api/course/courses/getCourseByCode/CSE205 - DATA STRUCTURES AND ALGORITHMS')
+      const res = await  axios.get(`http://localhost:8000/api/course/courses/getCourseByCode/${course_code}`)
       setCourse(res.data)
     }
     fetchCourse()

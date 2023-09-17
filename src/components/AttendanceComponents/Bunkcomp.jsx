@@ -41,18 +41,17 @@ function AttendanceCalculator({ attendanceData }) {
     const updatedAttendance = [...editedAttendance];
     if (updatedAttendance[index]) {
       updatedAttendance[index][field] = newValue;
-  
+
       if (field === "TargetAttendance") {
         recalculateBunks(index);
         calculateResultAttendance(index);
       } else if (field === "BunksLeft") {
         calculateResultAttendance(index);
       }
-  
+
       setEditedAttendance(updatedAttendance);
     }
   };
-  
 
   const recalculateBunks = (index) => {
     const updatedAttendance = [...editedAttendance];
@@ -65,6 +64,13 @@ function AttendanceCalculator({ attendanceData }) {
       );
       updatedAttendance[index].BunksLeft = bunksLeft;
       setEditedAttendance(updatedAttendance);
+      //  if(bunksLeft < 1){
+      //   updatedAttendance[index].BunksLeft = 0;
+      //   setEditedAttendance(updatedAttendance);
+      //  }else{
+      //   updatedAttendance[index].BunksLeft = bunksLeft;
+      //   setEditedAttendance(updatedAttendance);
+      //  }
     }
   };
 
@@ -111,7 +117,7 @@ function AttendanceCalculator({ attendanceData }) {
   return (
     <div>
       {/* <h1 className="text-2xl font-semibold mb-4">Attendance Calculator</h1> */}
-      <div className="flex flex-wrap sm:-mx-4 text-xs sm:text-base">
+      <div className="flex flex-wrap sm:-mx-4 w-[100vw] text-xs sm:text-base">
         {editedAttendance.map((course, index) => (
           <motion.div
             key={index}
@@ -166,39 +172,21 @@ function AttendanceCalculator({ attendanceData }) {
                     className="w-32    p-1 focus:outline-none border-b text-center rounded placeholder:text-xs"
                   />
                 </div>
-             {gr ? 
-              <div className="mb-2">
-                  <span className="font-bold">
-                    Bunks Left:
-                  </span>
-                  <input
-                    type="text"
-                    placeholder="Enter %"
-                    value={isFinite(course.BunksLeft) ? course.BunksLeft : 0}
-                    onChange={(e) =>
-                      updateEditedAttendance(index, "BunksLeft", e.target.value)
-                    }
-                    maxLength="3"
-                    className="w-32 p-1 focus:outline-none border-b text-center rounded placeholder:text-xs"
-                  />
-                </div> : 
                 <div className="mb-2">
                   <span className="font-bold">
-                   Classes to attend:
+                    {gr ? "Bunks Left" : "Classes to attend"}
                   </span>
                   <input
                     type="text"
                     placeholder="Enter %"
-                    value={isFinite(course.BunksLeft) ? course.BunksLeft : 0}
+                    value={course.BunksLeft}
                     onChange={(e) =>
                       updateEditedAttendance(index, "BunksLeft", e.target.value)
                     }
                     maxLength="3"
                     className="w-32 p-1 focus:outline-none border-b text-center rounded placeholder:text-xs"
                   />
-                </div> 
-                
-             }
+                </div>
                 <div>
                   <span className="font-bold">Result Attendance:</span>{" "}
                   {course.ResultAttendance || ""}

@@ -41,7 +41,7 @@ const LoginComponent = () => {
     toast.loading("Please Wait while we fetch Your Data...")
     try {
     
-      const res = await axios.post("hhttps://clientback-xa21.onrender.com/api/auth/login", {
+      const res = await axios.post("https://clientback-xa21.onrender.com/api/auth/login", {
         registrationNumber: registrationNumber,
         password: password,
       });

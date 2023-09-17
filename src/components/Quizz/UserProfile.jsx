@@ -8,7 +8,7 @@ const userProfile = {
 
 function UserProfile() {
   return (
-    <div className="flex items-center space-x-4">
+    <div className="flex flex-row-reverse gap-4 items-center space-x-1">
       {/* User Profile Info with Lottie Animation */}
       <div className="relative w-10 h-10 rounded-full overflow-hidden">
         {/* Lottie Animation */}
@@ -35,7 +35,7 @@ function UserProfile() {
 
       {/* User Profile Info */}
       <div>
-        <p className="text-sm font-semibold">{userProfile.name}</p>
+        <p className="text-sm font-semibold text-white">{userProfile.name}</p>
         {/* Add more user-related information here */}
       </div>
     </div>

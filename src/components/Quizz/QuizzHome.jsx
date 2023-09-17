@@ -4,6 +4,7 @@ import QuizzesByTopic from './TopicQ';
 import QuizzesByExamSection from './ExamByQ';
 import UserStats from './UserStats';
 import NavBar from './NavQuizz';
+import Coursecode from './Coursecode';
 
 function QuizzHome() {
   const [isNavVisible, setIsNavVisible] = useState(true);
@@ -37,30 +38,18 @@ function QuizzHome() {
   return (
     <div className="w-full">
       <div className="bg-white min-h-screen ">
-        <div className={`sticky top-0 transition-opacity z-50 transition-all bg-white ${isNavVisible ? ' bg-white opacity-100 transition-all z-50' : 'opacity-0 transition-all z-50'}`}>
+        <div className={`sticky top-0 z-50 transition-all bg-white ${isNavVisible ? ' bg-white opacity-100 transition-all z-50' : 'opacity-0 transition-all z-50'}`}>
           <NavBar />
         </div>
 
-        <main className="mx-14 mt-6">
+        <main className="mx-20 mt-6">
           <UserStats />
           {/* Trending Quizzes */}
-          <section>
-            <h2 className="text-2xl font-semibold mb-4">Trending Quizzes</h2>
-            <TrendingQuizzes />
+          <section className='mt-5'>
+            <h2 className='text-2xl font-semibold mb-4'>Choose your Subject</h2>
+            <Coursecode />
           </section>
-
-          {/* Quizzes by Topic */}
-          <section className="mt-8">
-            <h2 className="text-2xl font-semibold mb-4">Quizzes by Topic</h2>
-            <QuizzesByTopic />
-          </section>
-
-          {/* Quizzes by Exam Section */}
-          <section className="mt-8">
-            <h2 className="text-2xl font-semibold mb-4">Quizzes by Exam Section</h2>
-            <QuizzesByExamSection />
-          </section>
-        </main>
+          </main>
       </div>
     </div>
   );

@@ -5,8 +5,8 @@ const HomeworkProgressItem = ({ progress, title, pages, number }) => (
   <div
     className={`mt-4 shadow  cursor-pointer transition-all  hover:scale-[1.02]
     
-    ${number === true ? "bg-[#8a70d6] text-white" : "bg-[#fbfbfb]"}
-    hover:bg-[#8a70d6] group  
+    ${number === true ? "bg-sky-800 text-white" : "bg-[#fbfbfb]"}
+    hover:bg-sky-800 group  
      flex justify-between items-center rounded-lg p-3.5`}
   >
     <div className="flex items-center gap-3">

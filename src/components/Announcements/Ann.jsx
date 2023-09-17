@@ -25,11 +25,15 @@ const Announcement = ({ announcement }) => {
       </p>
       <div className="flex items-center text-gray-500 mt-2 sm:mt-4">
         <FaCalendarAlt className="mr-1" />
-       <div>
-       <span className="font-bold text-gray-900">
-       {announcement?.date}
-       </span>
-       </div>
+        <span>{announcement?.date}</span>
+        {/* Uncomment these lines if needed */}
+        {/* <FaClock className="mx-2" />
+        <span>{announcement?.time}</span>
+        <FaMapMarker className="mx-2" />
+        <span>{announcement?.venue}</span>
+        <a href={`mailto:${announcement?.email}`} className="ml-auto">
+          <FaEnvelope className="text-blue-500" />
+        </a> */}
       </div>
     </motion.div>
   );

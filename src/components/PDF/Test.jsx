@@ -27,8 +27,8 @@ const PdfViewer = (props) => {
 
   return (
     <div>
-      <Worker workerUrl="https://unpkg.com/pdfjs-dist@3.4.120/build/pdf.worker.js">
-        <div style={{ height: '120vh' }}>
+      <Worker workerUrl="https://unpkg.com/pdfjs-dist@3.10.111/build/pdf.worker.js">
+        <div style={{ height: '120vh' }} className="w-[80vw]">
           <Viewer
            onError={handlePdfLoadError}
             fileUrl={"https://d14uxtu9d0y7lp.cloudfront.net/" + pdfUrl} // Set the PDF URL here

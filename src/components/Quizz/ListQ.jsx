@@ -55,11 +55,18 @@ function QuizList() {
 
   return (
     <div>
-      <input
+      <motion.input
+        initial={{ opacity: 0, x: 20 , y: -10 }}
+        animate={{ opacity: 1, x: 0 , y: 0 }}
+        exit={{ opacity: 0, y: -10 }}
+        transition={{ duration: 0.2 , type:'tween'}}
+
         type="text"
-        className='border-b outline-none focus:outline-none 
-        focus:border-b-2 focus:border-blue-500
-        focus:pr-10 transition-all duration-500 ease-in-out '
+        className='border-b 
+      rounded-2xl lg:rounded-none w-full py-2 px-3 mx-12
+        outline-none focus:outline-none 
+        focus:border-b-2 focus:border-b-white text-white
+        focus:pr-10 transition-all duration-500 ease-in-out bg-sky-800'
         placeholder="Search quizzes"
         value={searchTerm}
         onChange={(e) => setSearchTerm(e.target.value)}
@@ -70,7 +77,9 @@ function QuizList() {
           {filteredQuizzes.map((quiz) => (
             <motion.li
               key={quiz.id}
-              className="bg-white hover:bg-blue-200 flex rounded-lg shadow-md p-4 my-2 transition duration-300 ease-in-out transform hover:scale-105"
+              className="bg-white hover:bg-blue-200 flex
+              sm:rounded-lg
+               rounded-lg shadow-md p-4 my-2 transition duration-300 ease-in-out transform hover:scale-105"
               initial={{ opacity: 0, y: -10, x: 10, scale: 0.99, rotate: 0 }}
               animate={{ opacity: 1, y: 0, x: 0, scale: 1, rotate: 0 }}
               exit={{ opacity: 0, y: 10, x: 10, scale: 0.9, rotate: 0 }}

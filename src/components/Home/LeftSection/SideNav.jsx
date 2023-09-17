@@ -31,7 +31,7 @@ const SideBar = () => {
   
 
   return (
-    <div className="  sm:w-[20rem] p-12  overflow-y-scroll h-screen scrollbar-hidden fixed border-r-2">
+    <div className="  sm:w-1/5 p-12  overflow-y-scroll h-screen scrollbar-hidden fixed border-r-2">
       <div className="flex items-center justify-start gap-3">
         {/* <img
           src="https://cdn.dribbble.com/userupload/2745586/file/original-7f0fa031e809b3802ff3a65736b38259.png?resize=52x"
@@ -39,12 +39,12 @@ const SideBar = () => {
         /> */}
 
         {/* <h1 className=" text-lg font-bold text-gray-500 tracking-widest">LMSEDU</h1> */}
-        {/* <img src={logo}
+        <img src={logo}
         className="overflow-hidden"
-        /> */}
-        <LogoAnimation/>
+        />
+        {/* <LogoAnimation/> */}
       </div>
-      <div className="flex flex-col gap-2.5 font-lato py-10 justify-center text-md">
+      <div className="flex flex-col gap-3 font-lato py-10 justify-center text-md">
         {buttons.map((button, index) => (
           <button
             key={index}
@@ -57,7 +57,7 @@ const SideBar = () => {
             style={{ userSelect: "none" }}
           >
             {/* <img className="h-5 w-5 mx-2 " src={button.icon} alt="" /> */}
-            <div className="h-5 w-5 flex items-center ml-2">{button.icon}</div>
+            <div className="h-5 w-5 flex mx-2 items-center ml-2">{button.icon}</div>
             <p>{button.label}</p>
           </button>
         ))}
