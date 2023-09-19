@@ -90,6 +90,19 @@ const LoginComponent = () => {
           }
         );
 
+        const ann = await axios.post(
+          "https://flaskappdeploy.azurewebsites.net/messages",
+          {
+            registration: registrationNumber,
+            password: password,
+          }
+        );
+
+        if(ann.status === 200) {
+          localStorage.setItem('announcements', JSON.stringify(ann.data));
+        }
+        
+
         if (attendance.status === 200) {
           dispatch(setInitialAttendance(attendance.data));
           localStorage.setItem("attendance", JSON.stringify(attendance.data));
