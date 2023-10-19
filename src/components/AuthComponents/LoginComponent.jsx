@@ -7,12 +7,12 @@ import { useDispatch, useSelector } from "react-redux";
 import { setInitialAttendance } from "../../Redux/AttendanceSlice";
 import { setUserProfile } from "../../Redux/ProfileSlice";
 import { AiOutlineLine } from "react-icons/ai";
-import picture from '../../assets/home/corse.png';
+import picture from "../../assets/home/corse.png";
 
 const LoginComponent = () => {
   const [registrationNumber, setRegistrationNumber] = useState("");
   const [password, setPassword] = useState("");
-  const [loading , setLoading] = useState(false)
+  const [loading, setLoading] = useState(false);
 
   const dispatch = useDispatch();
 
@@ -38,9 +38,8 @@ const LoginComponent = () => {
       toast.error("Please enter a valid registration number");
       return;
     }
-    toast.loading("Please Wait while we fetch Your Data...")
+    toast.loading("Please Wait while we fetch Your Data...");
     try {
-    
       const res = await axios.post("https://clientback-xa21.onrender.com/api/auth/login", {
         registrationNumber: registrationNumber,
         password: password,
@@ -56,7 +55,7 @@ const LoginComponent = () => {
       }
 
       try {
-        // const profile = await axios.post('https://flaskappdeploy.azurewebsites.net/profile' , {
+        // const profile = await axios.post('https://detaforwarder-1-b3424134.deta.app/profile' , {
         //   registration : registrationNumber,
         //   password  : password
         // })
@@ -67,7 +66,7 @@ const LoginComponent = () => {
         // }
 
         const attendance = await axios.post(
-          "https://flaskappdeploy.azurewebsites.net/atd_summary",
+          "https://detaforwarder-1-b3424134.deta.app/atd_summary",
           {
             registration: registrationNumber,
             password: password,
@@ -75,7 +74,7 @@ const LoginComponent = () => {
         );
 
         const inf = await axios.post(
-          "https://flaskappdeploy.azurewebsites.net/info",
+          "https://detaforwarder-1-b3424134.deta.app/info",
           {
             registration: registrationNumber,
             password: password,
@@ -83,25 +82,12 @@ const LoginComponent = () => {
         );
 
         const grades = await axios.post(
-          "https://flaskappdeploy.azurewebsites.net/grades",
+          "https://detaforwarder-1-b3424134.deta.app/grades",
           {
             registration: registrationNumber,
             password: password,
           }
         );
-
-        const ann = await axios.post(
-          "https://flaskappdeploy.azurewebsites.net/messages",
-          {
-            registration: registrationNumber,
-            password: password,
-          }
-        );
-
-        if(ann.status === 200) {
-          localStorage.setItem('announcements', JSON.stringify(ann.data));
-        }
-        
 
         if (attendance.status === 200) {
           dispatch(setInitialAttendance(attendance.data));
@@ -126,16 +112,16 @@ const LoginComponent = () => {
   };
 
   return (
-    <div
-      className=" h-5/6 flex items-center justify-center  bg-white rounded-2xl bg-clip-padding backdrop-filter border border-gray-100 "
-    >
+    <div className=" h-5/6 flex items-center justify-center  bg-white rounded-2xl bg-clip-padding backdrop-filter border border-gray-100 ">
       <div className="w-full max-w-md p-12 bg-opacity-20 rounded-md">
         <div className="p-4 flex justify-center items-center mb-2">
           <img src={picture} className="w-[40px] inline px-2" />
           <h1 className="inline text-cyan-800 text-2xl font-bold">LMSEDU</h1>
         </div>
-          <hr className="py-6" />
-        <h3 className="text-gray-400 text-xs">User Login <AiOutlineLine className="inline text-lg " /></h3>
+        <hr className="py-6" />
+        <h3 className="text-gray-400 text-xs">
+          User Login <AiOutlineLine className="inline text-lg " />
+        </h3>
         <form onSubmit={handleSubmit}>
           <h2 className="text-2xl font-bold mb-4 text-cyan-900">
             Login with Your UMS ID

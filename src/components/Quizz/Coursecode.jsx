@@ -80,7 +80,10 @@ const Coursecode = () => {
           colorIndex = (colorIndex + 1) % shuffledColors.length;
 
           return (
-            <Link key={item.courseCode} to={`/c/${item.courseCode}/units`}>
+            <Link
+              key={item.courseCode}
+              to={`/quizzesofacourse/${item.courseCode}`}
+            >
               <motion.div
                 initial={{ opacity: 0, y: 100, x: -30 }}
                 animate={{ opacity: 1, y: 0, x: 0 }}
@@ -107,7 +110,9 @@ const Coursecode = () => {
                     />
                   </motion.div>
                   <div className="flex-col flex">
-                    <p className="text-md font-semibold sm:w-8/12">{item.courseCode}</p>
+                    <p className="text-md font-semibold sm:w-8/12">
+                      {item.courseCode}
+                    </p>
                     <p className="text-xs">
                       {item.courseName.length > 15
                         ? `${item.courseName.substring(0, 30)}...`
@@ -116,7 +121,9 @@ const Coursecode = () => {
                   </div>
                 </div>
 
-                <button className="px-4 py-2 border hover:bg-sky-800 hover:text-white rounded-2xl hover:shadow-lg hover:scale-105 transition-all">Explore Quizzes <FaArrowRight className="inline text-xs"/></button>
+                <button className="px-4 py-2 border hover:bg-sky-800 hover:text-white rounded-2xl hover:shadow-lg hover:scale-105 transition-all">
+                  Explore Quizzes <FaArrowRight className="inline text-xs" />
+                </button>
               </motion.div>
             </Link>
           );

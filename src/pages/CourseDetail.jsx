@@ -87,7 +87,7 @@ const CourseDetail = () => {
   useEffect(() => {
 
     const fetchCourse = async () => {
-      const res = await  axios.get(`https://clientback-xa21.onrender.com/api/course/courses/getCourseByCode/${course_code}`)
+      const res = await  axios.get(`http://localhost:8000/api/course/courses/getCourseByCode/${course_code}`)
       setCourse(res.data)
     }
     fetchCourse()

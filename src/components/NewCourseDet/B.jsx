@@ -1,19 +1,31 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import PdfViewer from "../PDF/Test";
 import { motion } from "framer-motion";
 
 const FolderStructure = ({ shit, course_code }) => {
   const [openFolder, setOpenFolder] = useState(null);
+  const [dupOpenFolder, setDupOpenFolder] = useState(null);
   const [selectedFile, setSelectedFile] = useState(null);
 
   const toggleFolder = (folderName) => {
     setOpenFolder(openFolder === folderName ? null : folderName);
-    setSelectedFile(null);
   };
 
-  const selectFile = (fileName) => {
-    setSelectedFile(fileName);
+  const selectFile = (fileName, newPath) => {
+    if (fileName !== null) {
+      const pathEle = newPath.split("/");
+      setSelectedFile(fileName);
+      setDupOpenFolder(pathEle[0]);
+    }
   };
+
+  useEffect(() => {
+    console.log(shit, "list");
+  }, [shit]);
+
+  useEffect(() => {
+    console.log(`${course_code}/${dupOpenFolder}/${selectedFile}`);
+  }, [course_code, dupOpenFolder, selectedFile]);
 
   if (!shit) {
     return null;
@@ -58,7 +70,7 @@ const FolderStructure = ({ shit, course_code }) => {
               <li key={newPath} className="text-sm text-sky-900">
                 <button
                   className="hover:text-gray-200 mb-2 border-b w-[90%] float-right flex items-start ml-2 border-sky-800/20 focus:outline-none"
-                  onClick={() => selectFile(key)}
+                  onClick={() => selectFile(key, newPath)}
                 >
                   <motion.h1
                     whileTap={{ scale: 0.9 }}
@@ -93,7 +105,7 @@ const FolderStructure = ({ shit, course_code }) => {
             <div>
               <div>
                 <PdfViewer
-                  url={`${course_code}/${openFolder}/${selectedFile}`}
+                  url={`${course_code}/${dupOpenFolder}/${selectedFile}`}
                 />
               </div>
             </div>

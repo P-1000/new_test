@@ -19,8 +19,9 @@ import Quizz from "./pages/Quizz";
 import QuizzHome from "./components/Quizz/QuizzHome";
 import Announcemnets from "./pages/Announcemnets";
 import Events from "./pages/Events";
-import { HiMenu } from "react-icons/hi"
+import { HiMenu } from "react-icons/hi";
 import MobileNavbar from "./components/Home/Smmenu";
+import AllQuizzes from "./pages/AllQuizzes";
 
 function App() {
   const location = useLocation();
@@ -45,7 +46,6 @@ function App() {
     setIsHamburgerOpen(!isHamburgerOpen);
   };
 
-
   return (
     <>
       {!isSidebarOpen ? null : (
@@ -54,16 +54,19 @@ function App() {
         </>
       )}
 
-      <div className="flex flex-row bg-slate-100">   {/*  sm:p-5 */}
-        {!isSidebarOpen ? null :
+      <div className="flex flex-row bg-slate-100">
+        {" "}
+        {/*  sm:p-5 */}
+        {!isSidebarOpen ? null : (
           <>
             <div className="hidden lg:block w-[15rem]">
               <SideBar />
             </div>
           </>
-        }
-
-        <div className="h-screen overflow-y-scroll scrollbar-hidden mx-auto">  {/* m:px-5*/}
+        )}
+        <div className="h-screen overflow-y-scroll scrollbar-hidden mx-auto">
+          {" "}
+          {/* m:px-5*/}
           <Routes>
             <Route path="/signup" element={<Signup />} />
             <Route path="/login" element={<Login />} />
@@ -83,15 +86,20 @@ function App() {
             {/* schedule */}
             <Route path="/schedule" element={<Sch />} />
 
-
             {/* Quizz */}
             <Route path="/quizz" element={<QuizzHome />} />
-            <Route path="/quizz/:courseCode/:unit/:quizz_name" element={<Quizz />} />
+            <Route
+              path="/quizz/:courseCode/:unit/:quizz_name"
+              element={<Quizz />}
+            />
 
             <Route path="/announcements" element={<Announcemnets />} />
+            <Route
+              path="/quizzesofacourse/:coursecode"
+              element={<AllQuizzes />}
+            />
 
             <Route path="/events" element={<Events />} />
-
           </Routes>
         </div>
       </div>
